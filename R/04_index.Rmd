@@ -17,11 +17,11 @@ kids <- paste0(getwd(),"/output/",list.files(here::here("R","output"),pattern = 
 ```
 
 
-```{r, include = F, echo = F, results = "asis"}
+```{r, include = F, echo = F, results = 'asis'}
 out = NULL
 for(i in kids){
-  out = c(out, knit_child(i))
+  out = c(out, knit_child(i), "\n")
 }
 ```
 
-`r paste("\n",out)`
+`r paste0("\n",out)`
