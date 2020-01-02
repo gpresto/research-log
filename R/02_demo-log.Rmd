@@ -1,0 +1,45 @@
+---
+author: "Greg Preston"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: md_document
+params:
+  week: 2
+  
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+
+dat <- read.csv(here::here("data","cal.csv"))
+
+d <- dat %>% filter(week == params$week)
+
+```
+
+
+## Week `r d$week[1]`: `r d$lmin[1]`--`r d$lmax[1]`
+
+
+### `r d$day1[1]`
+<!-- Monday --> 
+  
+### `r d$day2[1]`
+<!-- Tuesday --> 
+  
+### `r d$day3[1]`
+<!-- Wednesday --> 
+  
+### `r d$day4[1]`
+<!-- Thursday --> 
+  
+### `r d$day5[1]`
+<!-- Friday --> 
+  
+### `r d$day6[1]`
+<!-- Saturday --> 
+  
+### `r d$day7[1]`
+<!-- Sunday --> 
+  

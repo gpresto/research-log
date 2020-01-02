@@ -1,0 +1,27 @@
+---
+title: "Thesis Research Log"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+library(knitr)
+
+dat <- read.csv(here::here("data","cal.csv"), colClasses = c(mmin = "character",dmin = "character",mmax = "character",dmax = "character"))
+
+kids <- paste0(getwd(),"/output/",list.files(here::here("R","output"),pattern = ".Rmd"))
+
+```
+
+
+```{r, include = F, echo = F, results = "asis"}
+out = NULL
+for(i in kids){
+  out = c(out, knit_child(i))
+}
+```
+
+`r paste("\n",out)`
